@@ -28,7 +28,6 @@ const HeroSection = () => {
         position: "relative",
       }}
     >
-      {/* Slider Container */}
       <Box
         sx={{
           display: "flex",
