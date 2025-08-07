@@ -16,7 +16,7 @@ const baseColors = {
 const LightBaseColors = {
   background: "#f2f2f2",
   pureWhite: "#ffffff",
-  offWhite: "#f2f2f2",
+  offWhite: "#dfdfdf",
   lightGray: "#b8b8b8",
   textPrimary: "#1f1f1f",
   textSecondary: "#6f6f6f",
