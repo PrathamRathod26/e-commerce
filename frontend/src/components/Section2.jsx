@@ -4,11 +4,11 @@ import Section2Image from "../assets/section2Image.jpg";
 import image1 from "../assets/heroImage1.jpg";
 import image2 from "../assets/heroImage2.jpg";
 import image3 from "../assets/heroImage3.jpg";
+// import image4 from "../assets/product3.png";
 
-const section2 = () => {
+const Section2 = () => {
   return (
-    <Box sx={{ width: "85vw", mx: "auto" }}>
-      {/* Top Banner Image */}
+    <Box sx={{ width: "85vw", mx: "auto", my: 4 }}>
       <Box sx={{ mb: 12, textAlign: "center" }}>
         <Box
           component="img"
@@ -19,13 +19,10 @@ const section2 = () => {
             width: "100%",
             objectFit: "cover",
             borderRadius: 6,
-            display: "block",
-            backgroundColor: "#f0f0f0",
           }}
         />
       </Box>
 
-      {/* Heading and Review Section */}
       <Box
         sx={{
           display: "flex",
@@ -35,7 +32,6 @@ const section2 = () => {
           px: 4,
         }}
       >
-        {/* Left Text */}
         <Box flex={3}>
           <Typography variant="h4" sx={{ fontWeight: "bold" }} gutterBottom>
             Lorem, ipsum dolor.
@@ -43,7 +39,6 @@ const section2 = () => {
           <Typography variant="h5">Lorem, ipsum dolor.</Typography>
         </Box>
 
-        {/* Star Rating */}
         <Box
           flex={1}
           sx={{
@@ -66,6 +61,7 @@ const section2 = () => {
       <Box
         sx={{
           display: "flex",
+          flexDirection: { xs: "column", lg: "row" },
           justifyContent: "center",
           mt: 4,
           gap: 2,
@@ -140,8 +136,49 @@ const section2 = () => {
           ))}
         </Box>
       </Box>
+      <Box sx={{ mt: 8, mb: 4 }}>
+        <Box>
+          <Typography variant="h4" sx={{ textAlign: "center" }}>
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          </Typography>
+        </Box>
+        <Box
+          flex={1}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 1,
+          }}
+        >
+          <Box>
+            {[...Array(5)].map((_, i) => (
+              <StarIcon key={i} fontSize="small" />
+            ))}
+          </Box>
+          <Typography variant="body1">Lorem ipsum dolor sit.</Typography>
+          <Typography variant="subtitle2" color="inherit">
+            verified User
+          </Typography>
+        </Box>
+      </Box>
+      {/* <Box sx={{ mt: 4, mb: 8, textAlign: "center" }}>
+        <Box
+          component={"img"}
+          src={image4}
+          alt="Section 2"
+          sx={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            borderRadius: 4,
+          }}
+        />
+      </Box> */}
     </Box>
   );
 };
 
-export default section2;
+export default Section2;

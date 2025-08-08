@@ -19,9 +19,11 @@ const products = Array(3).fill({
 const FeatureCard = ({ icon, title, description }) => (
   <Box
     sx={{
+      mt: -8,
       width: "100%",
       p: 2,
       bgcolor: "secondary.main",
+      color: "text.primary",
       borderRadius: 3,
       height: 200,
       display: "flex",
@@ -32,10 +34,10 @@ const FeatureCard = ({ icon, title, description }) => (
     }}
   >
     {icon}
-    <Typography variant="body1" color="text.primary">
+    <Typography variant="body1" color="inherit" textAlign={"center"}>
       {title}
     </Typography>
-    <Typography variant="caption" color="text.secondary" textAlign={"center"}>
+    <Typography variant="caption" color="inherit" textAlign={"center"}>
       {description}
     </Typography>
   </Box>
@@ -47,7 +49,6 @@ const ProductCard = ({ img, hoverImg, title }) => (
       display: "flex",
       flexDirection: "column",
       borderRadius: 2.5,
-      maxWidth: 250,
       overflow: "hidden",
       mb: 4,
     }}
@@ -56,7 +57,6 @@ const ProductCard = ({ img, hoverImg, title }) => (
       sx={{
         position: "relative",
         width: "100%",
-        aspectRatio: "1 / 1",
         overflow: "hidden",
         "&:hover .hover-img": {
           opacity: 1,
@@ -66,23 +66,21 @@ const ProductCard = ({ img, hoverImg, title }) => (
         },
       }}
     >
-      {/* Heart Button */}
       <IconButton
         sx={{
           position: "absolute",
           top: 8,
           left: 8,
           zIndex: 2,
-          backgroundColor: "rgba(255, 255, 255, 0)",
           "&:hover": {
-            backgroundColor: "rgba(255, 255, 255, 1)",
+            backgroundColor: "primary.main",
+            color: "primary.contrastText",  
           },
         }}
       >
         <FavoriteBorderIcon />
       </IconButton>
 
-      {/* Main Image */}
       <Box
         component="img"
         src={img}
@@ -97,7 +95,6 @@ const ProductCard = ({ img, hoverImg, title }) => (
         }}
       />
 
-      {/* Hover Image */}
       <Box
         component="img"
         src={hoverImg}
@@ -131,7 +128,7 @@ const ProductCard = ({ img, hoverImg, title }) => (
 
 const Section1 = () => {
   return (
-    <Box sx={{ mx: { xs: 2, lg: 8 }, my: 4 }}>
+    <Box sx={{ width: "85vw", mx: "auto", my: 4 }}>
       <Box
         sx={{
           display: "grid",
@@ -179,9 +176,9 @@ const Section1 = () => {
           ))}
         </Box>
         <Box sx={{ textAlign: "center", mb: 4 }}>
-          <Typography variant="subtitle1" color="primary">
+          <Button variant="text">
             Shop filter
-          </Typography>
+          </Button>
         </Box>
       </Box>
     </Box>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, IconButton, Typography } from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
@@ -10,6 +10,7 @@ const images = [heroImage1, heroImage2, heroImage3];
 
 const HeroSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [offset, setOffset] = useState(0);
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -18,6 +19,15 @@ const HeroSection = () => {
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setOffset(window.scrollY * -0.3);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const responsiveHeight = {
     sm: "50vh",
@@ -32,6 +42,9 @@ const HeroSection = () => {
         height: responsiveHeight,
         overflow: "hidden",
         position: "relative",
+        transform: `translateY(${offset}px)`,
+        transition: "transform 0.1s linear",
+        willChange: "transform",
       }}
     >
       <Box
@@ -62,7 +75,6 @@ const HeroSection = () => {
                 objectFit: "cover",
               }}
             />
-
             <Box
               sx={{
                 position: "absolute",
@@ -98,7 +110,6 @@ const HeroSection = () => {
         <NavigateBeforeIcon fontSize="large" />
       </IconButton>
 
-      {/* Next Button */}
       <IconButton
         onClick={handleNext}
         sx={{

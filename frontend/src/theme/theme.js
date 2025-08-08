@@ -1,17 +1,17 @@
 import { createTheme } from "@mui/material";
 
-const baseColors = {
+const DarkBaseColors = {
+  background: "#121212",
+  pureWhite: "#ffffff",
+  offWhite: "#2a2a2a",
+  lightGray: "#444444",
+  textPrimary: "#e0e0e0",
+  textSecondary: "#a0a0a0",
+  deepTeal: "#20B2AA",
+  gold: "#FFD700",
   black: "#000000",
-  dark1: "#222831",
-  dark2: "#393E46",
-  dark3: "#1e242b",
-  accent1: "#948979",
-  accent2: "#DFD0B8",
-  accent3: "#f9df91",
-  white: "#ffffff",
-  offWhite: "#f2f2f2",
-  lightGray: "#b8b8b8",
 };
+
 
 const LightBaseColors = {
   background: "#f2f2f2",
@@ -27,27 +27,28 @@ const LightBaseColors = {
 
 export const darkTheme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: "dark",
     background: {
-      default: baseColors.dark1,
-      paper: baseColors.dark2,
+      default: DarkBaseColors.background,
+      paper: DarkBaseColors.offWhite,
     },
     primary: {
-      main: baseColors.accent2,
-      contrastText: baseColors.dark3,
+      main: DarkBaseColors.deepTeal,
+      dark: DarkBaseColors.black,
+      contrastText: DarkBaseColors.pureWhite,
     },
     secondary: {
-      main: baseColors.accent1,
-      contrastText: baseColors.offWhite,
+      main: DarkBaseColors.offWhite,
+      contrastText: DarkBaseColors.textPrimary,
     },
     text: {
-      primary: baseColors.accent2,
-      secondary: baseColors.lightGray,
+      primary: DarkBaseColors.textPrimary,
+      secondary: DarkBaseColors.textSecondary,
     },
-    divider: baseColors.black,
-    darkPaper: baseColors.dark3,
+    divider: DarkBaseColors.lightGray,
   },
 });
+
 
 
 export const lightTheme = createTheme({
@@ -59,6 +60,7 @@ export const lightTheme = createTheme({
     },
     primary: {
       main: LightBaseColors.deepTeal,
+      dark: LightBaseColors.black,
       contrastText: LightBaseColors.pureWhite,
     },
     secondary: {
