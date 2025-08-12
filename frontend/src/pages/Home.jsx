@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import HeroSection from "../components/HomeComponent/HeroSection";
 import Section1 from "../components/HomeComponent/Section1";
 import Section2 from "../components/HomeComponent/Section2";
-import Section3 from "../components/HomeComponent/Section3";
+import EmailUpdate from "../components/GeneralComponent/EmailUpdate";
+import ImageSlider from "../components/GeneralComponent/ImageSlider";
 
 const Home = () => {
   const [offset1, setOffset1] = useState(0);
@@ -32,22 +33,21 @@ const Home = () => {
           position: "fixed",
           top: `-${offset1}px`,
           left: 0,
-          width: "100vw",
-          height: { xs: "50vh", sm: "50vh", md: "70vh", lg: "100vh" },
+          width: "100%",
+          height: { xs: "30vh", sm: "50vh", md: "70vh", lg: "100vh" },
           bgcolor: "lightblue",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
           zIndex: 1,
-          pointerEvents: "none",
         }}
       >
         <HeroSection />
       </Box>
 
       <Box
-        sx={{ height: { xs: "50vh", sm: "50vh", md: "70vh", lg: "100vh" } }}
+        sx={{ height: { xs: "30vh", sm: "50vh", md: "70vh", lg: "100vh" } }}
       ></Box>
 
       <Box
@@ -59,11 +59,21 @@ const Home = () => {
           py: 4,
         }}
       >
-        <Box sx={{ width: "85vw", mx: "auto", display: "flex", flexDirection: "column", gap: 8 }}>
+        <Box
+          sx={{
+            width: "85vw",
+            mx: "auto",
+            my: 4,
+            display: "flex",
+            flexDirection: "column",
+            gap: 8,
+          }}
+        >
           <Section1 />
           <Section2 />
-          <Section3 />
         </Box>
+        <EmailUpdate />
+        <ImageSlider />
       </Box>
     </Box>
   );

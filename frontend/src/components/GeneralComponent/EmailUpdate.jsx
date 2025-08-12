@@ -1,9 +1,9 @@
 import { Box, Typography, TextField, InputAdornment, Button } from "@mui/material";
 import ImageSlider from "./ImageSlider";
 const image1 = "https://placehold.co/1600x900";
-const section3 = () => {
+const EmailUpdate = () => {
   return (
-    <Box>
+    <Box width={"85vw"} mx={"auto"} my={4}>
       <Box flex={1} sx={{ position: "relative" }}>
         <Box
           component="img"
@@ -11,7 +11,7 @@ const section3 = () => {
           alt="Hero 1"
           sx={{
             width: "100%",
-            height: { xs: 300, sm: 400, md: 500 },
+            height: { xs: 400, sm: 500, md: 600 },
             objectFit: "cover",
             borderRadius: 4,
             display: "block",
@@ -98,17 +98,8 @@ const section3 = () => {
           </Box>
         </Box>
       </Box>
-
-      <Box sx={{ mt: 4, mb: 8, textAlign: "center" }}>
-        <Typography variant="h4" textAlign="center">
-          Follow on Instagram
-        </Typography>
-      </Box>
-      <Box>
-        <ImageSlider />
-      </Box>
     </Box>
   );
 };
 
-export default section3;
+export default EmailUpdate;

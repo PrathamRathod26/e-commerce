@@ -24,7 +24,7 @@ const HeroSection = () => {
     <Box
       sx={{
         width: "100%",
-        height: { xs: "50vh", sm: "50vh", md: "70vh", lg: "100vh" },
+        height: { xs: "30vh", sm: "50vh", md: "70vh", lg: "100vh" },
         overflow: "hidden",
         position: "relative",
       }}
@@ -42,7 +42,7 @@ const HeroSection = () => {
             key={index}
             sx={{
               width: `${100 / images.length}%`,
-              height:{ xs: "50vh", sm: "50vh", md: "70vh", lg: "100vh" },
+              height: { xs: "30vh", sm: "50vh", md: "70vh", lg: "100vh" },
               flexShrink: 0,
               position: "relative",
             }}
@@ -84,13 +84,13 @@ const HeroSection = () => {
         sx={{
           position: "absolute",
           top: "50%",
-          left: 8,
+          left: { xs: 2, sm: 4, md: 6, lg: 8 },
           transform: "translateY(-50%)",
           zIndex: 10,
           color: "#fff",
         }}
       >
-        <NavigateBeforeIcon fontSize="large" />
+        <NavigateBeforeIcon fontSize="large"/>
       </IconButton>
 
       <IconButton
@@ -98,7 +98,7 @@ const HeroSection = () => {
         sx={{
           position: "absolute",
           top: "50%",
-          right: 8,
+          right: { xs: 2, sm: 4, md: 6, lg: 8 },
           transform: "translateY(-50%)",
           zIndex: 10,
           color: "#fff",

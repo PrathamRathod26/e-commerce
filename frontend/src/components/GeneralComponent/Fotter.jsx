@@ -71,7 +71,7 @@ const Fotter = () => {
     <Box
       id="footer-parallax"
       sx={{
-        position: {sm: "static", md:"fixed"},
+        position: { sm: "static", md: "fixed" },
         bottom: 0,
         left: 0,
         height: { sm: "auto", md: 600, lg: 400 },
@@ -155,10 +155,10 @@ const Fotter = () => {
               sx={{ display: "flex", flexDirection: "column", gap: 4, flex: 1 }}
             >
               {renderLinks("Categories", [
-                "All products",
-                "Cleanser",
-                "Lotion",
-                "Moistrizers",
+                "Category 1",
+                "Category 2",
+                "Category 3",
+                "Category 4",
               ])}
               {renderLinks("Account", ["Favorites", "My Account"])}
             </Box>
