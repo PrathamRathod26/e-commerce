@@ -37,7 +37,7 @@ const ImageSlider = () => {
             key={index}
             sx={{
               flexShrink: 0,
-              width: 400,
+              width: {xs: 200, md: 250, lg: 350},
               mr: 2,
             }}
           >

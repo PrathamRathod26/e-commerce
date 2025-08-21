@@ -20,92 +20,127 @@ const HeroSection = () => {
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
+  const [offset1, setOffset1] = useState(0);
+
+  useEffect(() => {
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const y = window.scrollY;
+          setOffset1(y / 2);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <Box
       sx={{
+        position: "fixed",
+        top: `-${offset1}px`,
+        left: 0,
         width: "100%",
         height: { xs: "30vh", sm: "50vh", md: "70vh", lg: "100vh" },
-        overflow: "hidden",
-        position: "relative",
+        bgcolor: "lightblue",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        zIndex: 1,
       }}
     >
       <Box
         sx={{
-          display: "flex",
-          width: `${images.length * 100}%`,
-          transform: `translateX(-${currentIndex * (100 / images.length)}%)`,
-          transition: "transform 0.8s ease-in-out",
+          width: "100%",
+          height: { xs: "30vh", sm: "50vh", md: "70vh", lg: "100vh" },
+          overflow: "hidden",
+          position: "relative",
         }}
       >
-        {images.map((src, index) => (
-          <Box
-            key={index}
-            sx={{
-              width: `${100 / images.length}%`,
-              height: { xs: "30vh", sm: "50vh", md: "70vh", lg: "100vh" },
-              flexShrink: 0,
-              position: "relative",
-            }}
-          >
+        <Box
+          sx={{
+            display: "flex",
+            width: `${images.length * 100}%`,
+            transform: `translateX(-${currentIndex * (100 / images.length)}%)`,
+            transition: "transform 0.8s ease-in-out",
+          }}
+        >
+          {images.map((src, index) => (
             <Box
-              component="img"
-              src={src}
-              alt={`Slide ${index}`}
+              key={index}
               sx={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                display: "block",
-              }}
-            />
-            <Box
-              sx={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                backgroundColor: "rgba(0, 0, 0, 0.2)",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
+                width: `${100 / images.length}%`,
+                height: { xs: "30vh", sm: "50vh", md: "70vh", lg: "100vh" },
+                flexShrink: 0,
+                position: "relative",
               }}
             >
-              <Typography variant="h4" color="white" component="h1">
-                Welcome to Our Store
-              </Typography>
+              <Box
+                component="img"
+                src={src}
+                alt={`Slide ${index}`}
+                sx={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  display: "block",
+                }}
+              />
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  backgroundColor: "rgba(0, 0, 0, 0.2)",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Typography variant="h4" color="white" component="h1">
+                  Welcome to Our Store
+                </Typography>
+              </Box>
             </Box>
-          </Box>
-        ))}
+          ))}
+        </Box>
+
+        <IconButton
+          onClick={handlePrev}
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: { xs: 2, sm: 4, md: 6, lg: 8 },
+            transform: "translateY(-50%)",
+            zIndex: 10,
+            color: "#fff",
+          }}
+        >
+          <NavigateBeforeIcon fontSize="large" />
+        </IconButton>
+
+        <IconButton
+          onClick={handleNext}
+          sx={{
+            position: "absolute",
+            top: "50%",
+            right: { xs: 2, sm: 4, md: 6, lg: 8 },
+            transform: "translateY(-50%)",
+            zIndex: 10,
+            color: "#fff",
+          }}
+        >
+          <NavigateNextIcon fontSize="large" />
+        </IconButton>
       </Box>
-
-      <IconButton
-        onClick={handlePrev}
-        sx={{
-          position: "absolute",
-          top: "50%",
-          left: { xs: 2, sm: 4, md: 6, lg: 8 },
-          transform: "translateY(-50%)",
-          zIndex: 10,
-          color: "#fff",
-        }}
-      >
-        <NavigateBeforeIcon fontSize="large"/>
-      </IconButton>
-
-      <IconButton
-        onClick={handleNext}
-        sx={{
-          position: "absolute",
-          top: "50%",
-          right: { xs: 2, sm: 4, md: 6, lg: 8 },
-          transform: "translateY(-50%)",
-          zIndex: 10,
-          color: "#fff",
-        }}
-      >
-        <NavigateNextIcon fontSize="large" />
-      </IconButton>
     </Box>
   );
 };

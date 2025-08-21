@@ -3,7 +3,7 @@ import { createTheme } from "@mui/material";
 const DarkBaseColors = {
   background: "#121212",
   pureWhite: "#ffffff",
-  offWhite: "#2a2a2a",
+  offWhite: "#0a0a0a",
   lightGray: "#444444",
   textPrimary: "#e0e0e0",
   textSecondary: "#a0a0a0",
@@ -16,7 +16,7 @@ const DarkBaseColors = {
 const LightBaseColors = {
   background: "#f2f2f2",
   pureWhite: "#ffffff",
-  offWhite: "#dfdfdf",
+  offWhite: "#f6f6f6",
   lightGray: "#b8b8b8",
   textPrimary: "#1f1f1f",
   textSecondary: "#6f6f6f",

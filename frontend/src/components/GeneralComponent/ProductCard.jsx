@@ -76,12 +76,10 @@ const ProductCard = ({ img, hoverImg, title }) => (
       />
     </Box>
 
-    <Box px={2} pb={2}>
+    <Box sx={{ p: 3, textAlign: "center" }}>
       <Typography
-        variant="h6"
+        variant="h5"
         color="inherit"
-        textAlign="center"
-        sx={{ mt: 2, mb: 3 }}
       >
         {title}
       </Typography>

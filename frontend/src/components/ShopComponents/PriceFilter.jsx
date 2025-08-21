@@ -5,7 +5,7 @@ const PriceFilter = () => {
   const [value, setValue] = useState([20, 80]);
 
   return (
-    <Box sx={{ mb: 3 }}>
+    <Box>
       <Typography variant="h6" gutterBottom>
         Price
       </Typography>

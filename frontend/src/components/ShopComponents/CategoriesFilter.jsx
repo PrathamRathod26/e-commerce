@@ -3,7 +3,7 @@ import React from "react";
 
 const CategoriesFilter = () => {
   return (
-    <Box sx={{ mb: 3 }}>
+    <Box>
       <Typography variant="h6" gutterBottom>
         Categories
       </Typography>

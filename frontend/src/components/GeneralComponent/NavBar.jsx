@@ -19,12 +19,14 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import RollingText from "../../microIntractions/RollingText.jsx";
 import { useTheme } from "@mui/material/styles";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
   const { toggleTheme, mode } = useThemeContext();
   const [showNavbar, setShowNavbar] = useState(true);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const lastScrollY = useRef(0);
+  const navigate = useNavigate();
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -46,7 +48,13 @@ const NavBar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const menuItems = ["Shop", "Collections", "About", "Blog", "Contacts"];
+const menuItems = [
+  { label: "Shop", path: "/shop" },
+  { label: "Collections", path: "/collections" },
+  { label: "About", path: "/about" },
+  { label: "Blog", path: "/blog" },
+  { label: "Contacts", path: "/contacts" },
+];
 
   return (
     <>
@@ -68,7 +76,15 @@ const NavBar = () => {
             zIndex: 1000,
           }}
         >
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: 1,
+              cursor: "pointer",
+            }}
+            onClick={() => navigate("/")}
+          >
             <Typography variant="h6" color="inherit">
               (LOGO)
             </Typography>
@@ -83,7 +99,7 @@ const NavBar = () => {
                 gap: 3,
               }}
             >
-              {menuItems.map((label, i) => (
+              {menuItems.map((item, i) => (
                 <Box
                   key={i}
                   sx={{
@@ -92,9 +108,10 @@ const NavBar = () => {
                     gap: 0.5,
                     cursor: "pointer",
                   }}
+                  onClick={() => navigate(item.path)} // ✅ navigate on click
                 >
-                  <RollingText text={label} />
-                  {["Shop", "Collections"].includes(label) && <AddIcon />}
+                  <RollingText text={item.label} />
+                  {["Shop", "Collections"].includes(item.label) && <AddIcon />}
                 </Box>
               ))}
             </Box>
@@ -121,16 +138,19 @@ const NavBar = () => {
                   {mode === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
                 </IconButton>
 
-                <IconButton>
+                <IconButton onClick={() => navigate("/profile")}>
                   <PersonOutlinedIcon />
                 </IconButton>
-                <IconButton>
+
+                <IconButton onClick={() => navigate("/search")}>
                   <SearchIcon />
                 </IconButton>
-                <IconButton>
+
+                <IconButton onClick={() => navigate("/favorites")}>
                   <FavoriteBorderOutlinedIcon />
                 </IconButton>
-                <IconButton>
+
+                <IconButton onClick={() => navigate("/cart")}>
                   <ShoppingBagOutlinedIcon />
                 </IconButton>
               </>
@@ -175,7 +195,7 @@ const NavBar = () => {
             </IconButton>
           </Box>
 
-          {menuItems.map((label, i) => (
+          {menuItems.map((item, i) => (
             <Box
               key={i}
               sx={{
@@ -184,9 +204,13 @@ const NavBar = () => {
                 gap: 0.5,
                 cursor: "pointer",
               }}
+              onClick={() => {
+                navigate(item.path);
+                setDrawerOpen(false);
+              }}
             >
-              <Typography variant="body1">{label}</Typography>
-              {["Shop", "Collections"].includes(label) && <AddIcon />}
+              <Typography variant="body1">{item.label}</Typography>
+              {["Shop", "Collections"].includes(item.label) && <AddIcon />}
             </Box>
           ))}
 

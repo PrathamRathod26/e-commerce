@@ -13,7 +13,7 @@ const SizeFilter = () => {
   };
 
   return (
-    <Box sx={{ mb: 3 }}>
+    <Box>
       <Typography variant="h6" gutterBottom>
         Size
       </Typography>
