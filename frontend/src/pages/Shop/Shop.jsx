@@ -1,13 +1,13 @@
 import { Box, Typography, Button, Drawer, useMediaQuery } from "@mui/material";
 import { useState } from "react";
-import CategoriesFilter from "../components/ShopComponents/CategoriesFilter.jsx";
-import TagsFilter from "../components/ShopComponents/TagsFilter.jsx";
-import SizeFilter from "../components/ShopComponents/SizeFilter.jsx";
-import PriceFilter from "../components/ShopComponents/PriceFilter.jsx";
-import DiscountFilter from "../components/ShopComponents/DiscountFilter.jsx";
-import ProductCard from "../components/GeneralComponent/ProductCard.jsx";
-import productImage1 from "../assets/product1.png";
-import productImage1hover from "../assets/product1hover.jpg";
+import CategoriesFilter from "./ShopComponents/CategoriesFilter.jsx";
+import TagsFilter from "./ShopComponents/TagsFilter.jsx";
+import SizeFilter from "./ShopComponents/SizeFilter.jsx";
+import PriceFilter from "./ShopComponents/PriceFilter.jsx";
+import DiscountFilter from "./ShopComponents/DiscountFilter.jsx";
+import ProductCard from "../../components/ProductCard.jsx";
+import productImage1 from "../../assets/product1.png";
+import productImage1hover from "../../assets/product1hover.jpg";
 
 const products = Array(15).fill({
   img: productImage1,

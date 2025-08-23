@@ -1,15 +1,13 @@
 import { Box } from "@mui/material";
-import HeroSection from "../components/HomeComponent/HeroSection";
-import Section1 from "../components/HomeComponent/Section1";
-import Section2 from "../components/HomeComponent/Section2";
+import HeroSection from "./HomeComponents/HeroSection";
+import Section1 from "./HomeComponents/Section1";
+import Section2 from "./HomeComponents/Section2";
 
 const Home = () => {
   return (
     <Box>
       <HeroSection />
-      <Box
-        sx={{ height: { xs: "30vh", sm: "50vh", md: "70vh", lg: "100vh" } }}
-      ></Box>
+      <Box sx={{ height: { xs: "30vh", sm: "50vh", md: "70vh", lg: "100vh" } }}/>
 
       <Box
         sx={{

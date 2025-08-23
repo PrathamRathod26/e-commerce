@@ -1,12 +1,12 @@
 import React from "react";
 import { Box } from "@mui/material";
-import Routes from "./routes/routes.jsx";
+import Routes from "./routes/Routes.jsx";
 import "./animations/ImageSlider.css";
 
-import NavBar from "./components/GeneralComponent/NavBar.jsx";
-import Fotter from "./components/GeneralComponent/Fotter.jsx";
-import EmailUpdate from "./components/GeneralComponent/EmailUpdate.jsx";
-import ImageSlider from "./components/GeneralComponent/ImageSlider.jsx";
+import NavBar from "./components/NavBar.jsx";
+import Fotter from "./components/Fotter.jsx";
+import EmailUpdate from "./components/EmailUpdate.jsx";
+import ImageSlider from "./components/ImageSlider.jsx";
 
 const App = () => {
   return (

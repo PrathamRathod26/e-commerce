@@ -1,9 +1,21 @@
-import { Box, Typography, TextField, InputAdornment, Button } from "@mui/material";
+import {
+  Box,
+  Typography,
+  TextField,
+  InputAdornment,
+  Button,
+} from "@mui/material";
 import ImageSlider from "./ImageSlider";
 const image1 = "https://placehold.co/1600x900";
 const EmailUpdate = () => {
   return (
-    <Box width={"85vw"} mx={"auto"} my={4}>
+    <Box
+      sx={{
+        width: "85vw",
+        mx: "auto",
+        my: 4,
+      }}
+    >
       <Box flex={1} sx={{ position: "relative" }}>
         <Box
           component="img"

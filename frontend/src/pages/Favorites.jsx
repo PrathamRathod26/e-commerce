@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material'
 import productImage1 from "../assets/product1.png";
 import productImage1hover from "../assets/product1hover.jpg";
-import ProductCard from '../components/GeneralComponent/ProductCard';
+import ProductCard from '../components/ProductCard';
 
 const Favorites = () => {
   const products = Array(16).fill({

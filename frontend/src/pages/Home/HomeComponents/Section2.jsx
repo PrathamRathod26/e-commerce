@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
+import ReviewComment from "../../../components/ReviewComment";
 
 const heroImage1 = "https://placehold.co/960x600";
 const heroImage2 = "https://placehold.co/600x400";
@@ -40,29 +41,19 @@ const Section2 = () => {
         }}
       />
 
-      {/* Title + Rating */}
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: { xs: "flex-start", sm: "flex-end" },
-          flexWrap: "wrap",
-          gap: 2,
-          px: { xs: 2, md: 6 },
-        }}
-      >
-        <Box sx={{ flex: 2 }}>
-          <Typography variant="h4" fontWeight="bold" gutterBottom>
-            Lorem, ipsum dolor.
-          </Typography>
-          <Typography variant="h6" color="text.secondary">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto
-            doloribus laudantium quos ullam alias aspernatur.
-          </Typography>
-        </Box>
-
-        <Rating value={5} text="4.7 (1,109 reviews)" />
-      </Box>
+      <ReviewComment
+        heading1="Lorem ipsum"
+        heading2="Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quaerat harum iusto reprehenderit!"
+        heading1Variant="h4"
+        heading2Variant="h2"
+        rating={4.7}
+        reviewCount={1463}
+        userImages={[
+          "https://placehold.co/100x100?text=User1",
+          "https://placehold.co/100x100?text=User2",
+          "https://placehold.co/100x100?text=User3",
+        ]}
+      />
 
       {/* Image Grid */}
       <Box

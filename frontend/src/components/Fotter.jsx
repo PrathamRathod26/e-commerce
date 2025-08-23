@@ -10,12 +10,41 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
-import RollingText from "../../microIntractions/RollingText.jsx";
+import RollingText from "../microIntractions/RollingText.jsx";
 import { useTheme } from "@mui/material/styles";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
-const Fotter = () => {
+const Footer = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.only("xs"));
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  // Define the paths for each link
+  const linkPaths = {
+    Home: "/",
+    About: "/about",
+    Shop: "/shop",
+    "Shop Single": "/shop-single",
+    Blog: "/blog",
+    "Blog Single": "/blog-single",
+    404: "/404",
+    Licencing: "/licencing",
+    "All products": "/products",
+    Cleanser: "/category/cleanser",
+    Lotion: "/category/lotion",
+    Moistrizers: "/category/moistrizers",
+    Favorites: "/favorites",
+    "My Account": "/account",
+    Contacts: "/contacts",
+    FAQs: "/faqs",
+    "Shipping & Delivery": "/shipping",
+    "Orders and Returns": "/orders",
+    "Terms & Conditions": "/terms",
+    "Category 1": "/category/1",
+    "Category 2": "/category/2",
+    "Category 3": "/category/3",
+    "Category 4": "/category/4",
+  };
 
   const rollingProps = {
     firstTextSx: { color: "text.secondary" },
@@ -45,7 +74,13 @@ const Fotter = () => {
           <AccordionDetails>
             <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
               {items.map((item, i) => (
-                <RollingText key={i} text={item} {...rollingProps} />
+                <Box
+                  key={i}
+                  onClick={() => navigate(linkPaths[item])} // Add onClick handler
+                  sx={{ cursor: "pointer" }}
+                >
+                  <RollingText text={item} {...rollingProps} />
+                </Box>
               ))}
             </Box>
           </AccordionDetails>
@@ -59,7 +94,13 @@ const Fotter = () => {
           </Typography>
           <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
             {items.map((item, i) => (
-              <RollingText key={i} text={item} {...rollingProps} />
+              <Box
+                key={i}
+                onClick={() => navigate(linkPaths[item])} // Add onClick handler
+                sx={{ cursor: "pointer" }}
+              >
+                <RollingText text={item} {...rollingProps} />
+              </Box>
             ))}
           </Box>
         </Box>
@@ -93,7 +134,6 @@ const Fotter = () => {
           gap: { xs: 2, sm: 4, lg: 6 },
         }}
       >
-        {/* About Section */}
         <Box
           sx={{
             display: "flex",
@@ -111,14 +151,13 @@ const Fotter = () => {
             nostrum quod dolorum dolores sint eveniet magni asperiores. Vel,
             dicta?
           </Typography>
-          <Box sx={{ display: "flex", gap: 2 }}>
-            <FacebookIcon />
-            <InstagramIcon />
-            <XIcon />
+          <Box sx={{ display: "flex", gap: 2, cursor: "pointer" }}>
+            <FacebookIcon onClick={() => navigate("https://facebook.com")} />
+            <InstagramIcon onClick={() => navigate("https://instagram.com")} />
+            <XIcon onClick={() => navigate("https://twitter.com")} />
           </Box>
         </Box>
 
-        {/* Links Section */}
         <Box
           sx={{
             display: "flex",
@@ -177,4 +216,4 @@ const Fotter = () => {
   );
 };
 
-export default Fotter;
+export default Footer;

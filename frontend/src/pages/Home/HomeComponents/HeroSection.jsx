@@ -47,7 +47,6 @@ const HeroSection = () => {
         left: 0,
         width: "100%",
         height: { xs: "30vh", sm: "50vh", md: "70vh", lg: "100vh" },
-        bgcolor: "lightblue",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
