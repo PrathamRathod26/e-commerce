@@ -16,31 +16,30 @@ const ProductFeature = () => {
       sx={{
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
-        alignItems: "center",
+        alignItems: "strech",
         justifyContent: "center",
         gap: { xs: 4, md: 8 },
         my: { xs: 6, md: 10 },
         mx: "auto",
-        px: { xs: 2, sm: 4, md: 8 },
       }}
     >
       {/* Left Image */}
-      <Box
-        component="img"
-        src="https://placehold.co/400x500"
-        sx={{
-          flex: 1.2,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          borderRadius: 3,
-          boxShadow: 3,
-        }}
-      />
+      <Box sx={{flex: 2,display: "flex", alignItems: "center" }}>
+        <Box
+          component="img"
+          src="https://placehold.co/400x500"
+          sx={{
+            flex: 1.2,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            borderRadius: 3,
+          }}
+        />
+      </Box>
 
       {/* Right Content */}
-      <Box sx={{ flex: 1.8, textAlign: { xs: "center", md: "left" } }}>
-
+      <Box sx={{ flex: 3, textAlign: { xs: "center", md: "left" } }}>
         <Typography
           variant="h3"
           sx={{

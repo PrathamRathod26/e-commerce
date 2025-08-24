@@ -6,8 +6,8 @@ import StarBorderIcon from "@mui/icons-material/StarBorder";
 const ReviewComment = ({
   heading1,
   heading2,
-  heading1Variant = "h2", // default values
-  heading2Variant = "h2",
+  heading1Variant = "h2",
+  heading2Variant = "h3",
   rating,
   reviewCount,
   userImages,
@@ -19,7 +19,7 @@ const ReviewComment = ({
     <Box
       sx={{
         display: "flex",
-        flexDirection: { xs: "column", md: "row" },
+        flexDirection: { xs: "column", sm: "row" },
         justifyContent: "space-between",
         gap: 2,
         mt: 6,
@@ -46,6 +46,8 @@ const ReviewComment = ({
           flexDirection: "row",
           gap: 2,
           alignItems: "flex-end",
+          flexShrink: 0,
+          justifyContent: "center"
         }}
       >
         {/* Ratings */}
@@ -80,13 +82,13 @@ const ReviewComment = ({
               }
             })}
           </Box>
-          <Typography variant="h5" color="textPrimary">
+          <Typography variant="body1" color="textPrimary">
             {rating} ({reviewCount.toLocaleString()} reviews)
           </Typography>
         </Box>
 
         {/* User Images */}
-        <Box sx={{ display: "flex" }}>
+        <Box sx={{ display: {xs: "none" ,md: "flex",} }}>
           {userImages.slice(0, 3).map((img, i) => (
             <Box
               component="img"
@@ -98,9 +100,10 @@ const ReviewComment = ({
                 height: 70,
                 borderRadius: 3,
                 objectFit: "cover",
-                border: "4px solid white",
+                border: "4px solid ",
+                borderColor: "background.paper",
                 ml: i === 0 ? 0 : -1.5,
-                boxShadow: "0 0 0 1px rgba(0,0,0,0.1)",
+                boxShadow: "0 0 0 1px rgba(158, 158, 158, 0.5)",
                 transform: `rotate(${rotations[i % rotations.length]})`,
                 transition: "transform 0.3s",
                 ":hover": {

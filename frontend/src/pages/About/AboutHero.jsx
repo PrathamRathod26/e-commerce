@@ -20,6 +20,7 @@ const AboutHero = () => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
     <Box
       sx={{
@@ -28,11 +29,7 @@ const AboutHero = () => {
         left: 0,
         width: "100%",
         height: { xs: "30vh", sm: "50vh", md: "70vh", lg: "100vh" },
-        bgcolor: "lightblue",
         display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
         zIndex: 1,
       }}
     >
@@ -51,7 +48,6 @@ const AboutHero = () => {
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            display: "block",
           }}
         />
         <Box
@@ -65,22 +61,27 @@ const AboutHero = () => {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            alignItems: "left",
+            alignItems: "flex-start",
             pl: { xs: 2, sm: 4, md: 6, lg: 8 },
-            gap: 1
+            gap: 1,
           }}
         >
           <Typography variant="h4" color="white" component="h1">
-            Redifining
+            Redefining
           </Typography>
           <Typography variant="h5" color="white" component="h2">
             E-commerce Excellence
           </Typography>
-          <Typography variant="body1" color="white">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor, iure a minus et exercitationem ad beatae veniam. <br /> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum, facere. Vel, amet.</Typography>
+          <Typography variant="body1" color="white">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor,
+            iure a minus et exercitationem ad beatae veniam. <br />
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum,
+            facere. Vel, amet.
+          </Typography>
         </Box>
       </Box>
     </Box>
   );
-}
+};
 
-export default AboutHero
+export default AboutHero;

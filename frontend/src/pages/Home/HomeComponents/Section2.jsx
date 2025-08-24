@@ -45,7 +45,7 @@ const Section2 = () => {
         heading1="Lorem ipsum"
         heading2="Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quaerat harum iusto reprehenderit!"
         heading1Variant="h4"
-        heading2Variant="h2"
+        heading2Variant="h6"
         rating={4.7}
         reviewCount={1463}
         userImages={[

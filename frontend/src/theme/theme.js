@@ -3,7 +3,7 @@ import { createTheme } from "@mui/material";
 const DarkBaseColors = {
   background: "#121212",
   pureWhite: "#ffffff",
-  offWhite: "#0a0a0a",
+  offWhite: "#2C2C2C",
   lightGray: "#444444",
   textPrimary: "#e0e0e0",
   textSecondary: "#a0a0a0",
@@ -11,7 +11,6 @@ const DarkBaseColors = {
   gold: "#FFD700",
   black: "#000000",
 };
-
 
 const LightBaseColors = {
   background: "#f2f2f2",
@@ -21,8 +20,50 @@ const LightBaseColors = {
   textPrimary: "#1f1f1f",
   textSecondary: "#6f6f6f",
   deepTeal: "#0F3E3E",
-  gold: "#D4AF37", 
+  gold: "#D4AF37",
   black: "#000000",
+};
+
+// ✅ Shared typography
+const typography = {
+  h1: {
+    fontWeight: 700,
+    fontSize: "2.5rem",
+    "@media (min-width:600px)": {
+      fontSize: "3rem",
+    },
+    "@media (min-width:900px)": {
+      fontSize: "3.5rem",
+    },
+  },
+  h2: {
+    fontWeight: 600,
+    fontSize: "2rem",
+    "@media (min-width:600px)": {
+      fontSize: "2.5rem",
+    },
+    "@media (min-width:900px)": {
+      fontSize: "3rem",
+    },
+  },
+  body1: {
+    fontSize: "0.9rem",
+    "@media (min-width:600px)": {
+      fontSize: "1rem",
+    },
+    "@media (min-width:900px)": {
+      fontSize: "1.1rem",
+    },
+  },
+  body2: {
+    fontSize: "0.8rem",
+    "@media (min-width:600px)": {
+      fontSize: "0.9rem",
+    },
+    "@media (min-width:900px)": {
+      fontSize: "1rem",
+    },
+  },
 };
 
 export const darkTheme = createTheme({
@@ -47,9 +88,8 @@ export const darkTheme = createTheme({
     },
     divider: DarkBaseColors.lightGray,
   },
+  typography,
 });
-
-
 
 export const lightTheme = createTheme({
   palette: {
@@ -73,4 +113,5 @@ export const lightTheme = createTheme({
     },
     divider: LightBaseColors.lightGray,
   },
+  typography,
 });

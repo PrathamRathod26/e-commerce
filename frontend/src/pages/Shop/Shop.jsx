@@ -31,8 +31,6 @@ const FilterContent = ({ onApply }) => (
       gutterBottom
       fontWeight="bold"
       sx={{
-        position: "sticky",
-        top: 0,
         py: 1,
       }}
     >
@@ -80,7 +78,7 @@ const Shop = () => {
   return (
     <Box>
       <Box sx={{ my: 4, p: 2, borderRadius: 2, textAlign: "center" }}>
-        <Typography variant="h1">Shop</Typography>
+        <Typography variant="h1" fontStyle="italic">Shop</Typography>
       </Box>
 
       <Box

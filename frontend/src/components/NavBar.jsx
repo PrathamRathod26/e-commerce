@@ -53,7 +53,7 @@ const menuItems = [
   { label: "Collections", path: "/collections" },
   { label: "About", path: "/about" },
   { label: "Blog", path: "/blog" },
-  { label: "Contacts", path: "/contacts" },
+  { label: "Contacts", path: "/contact" },
 ];
 
   return (

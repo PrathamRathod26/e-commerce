@@ -47,21 +47,14 @@ const Journey = () => {
     <Box
       sx={{
         display: "flex",
-        flexDirection: { sm: "column", md: "row" },
+        flexDirection: { xs: "column", md: "row" },
         gap: 6,
         my: 8,
         mx: "auto",
         px: 2,
       }}
     >
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          gap: 3,
-          flex: 1,
-        }}
-      >
+      <Box sx={{ display: "flex", flexDirection: "column", gap: 3, flex: 1 }}>
         <Box
           component="img"
           src="https://placehold.co/350x400"
@@ -69,7 +62,6 @@ const Journey = () => {
             width: "100%",
             borderRadius: 3,
             objectFit: "cover",
-            boxShadow: 3,
             flex: 1,
           }}
         />
@@ -94,14 +86,7 @@ const Journey = () => {
         />
       </Box>
 
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: { sm: "column-reverse", md: "column"},
-          gap: 3,
-          flex: 1,
-        }}
-      >
+      <Box sx={{ display: "flex", flexDirection: {xs: "column-reverse", md: "column"}, gap: 3, flex: 1 }}>
         <Card
           cardTitle="About Us"
           heading="Passion for Excellence"
@@ -125,7 +110,6 @@ const Journey = () => {
             width: "100%",
             borderRadius: 3,
             objectFit: "cover",
-            boxShadow: 3,
             flex: 1,
           }}
         />
