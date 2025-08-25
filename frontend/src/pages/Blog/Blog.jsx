@@ -22,7 +22,7 @@ const Blog = () => {
         sx={{
           position: "relative",
           zIndex: 2,
-          mt: { xs: -28, sm: -26, md: -26 },
+          mt: { xs: "-2rem", sm: "-3rem", md:"-4rem"  },
           mb: { xs: 0, sm: 13 },
           px: 8,
         }}
