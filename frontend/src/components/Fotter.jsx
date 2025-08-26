@@ -40,10 +40,9 @@ const Footer = () => {
     "Shipping & Delivery": "/shipping",
     "Orders and Returns": "/orders",
     "Terms & Conditions": "/terms",
-    "Category 1": "/category/1",
-    "Category 2": "/category/2",
-    "Category 3": "/category/3",
-    "Category 4": "/category/4",
+    "Category 1": "/category1",
+    "Category 2": "/category2",
+    "Category 3": "/category3",
   };
 
   const rollingProps = {
@@ -204,7 +203,6 @@ const Footer = () => {
                   "Category 1",
                   "Category 2",
                   "Category 3",
-                  "Category 4",
                 ])}
                 {renderLinks("Account", ["Favorites", "My Account"])}
               </Box>
@@ -314,7 +312,6 @@ const Footer = () => {
                   "Category 1",
                   "Category 2",
                   "Category 3",
-                  "Category 4",
                 ])}
                 {renderLinks("Account", ["Favorites", "My Account"])}
               </Box>

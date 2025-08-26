@@ -20,7 +20,7 @@ const TagsFilter = () => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        height: 250,
+        minHeight: 200,
         overflow: "hidden",
       }}
     >

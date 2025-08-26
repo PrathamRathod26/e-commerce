@@ -1,5 +1,14 @@
-import { Box, Typography, Button, Drawer, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Button,
+  Drawer,
+  useMediaQuery,
+  IconButton,
+  Paper,
+} from "@mui/material";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CategoriesFilter from "./ShopComponents/CategoriesFilter.jsx";
 import TagsFilter from "./ShopComponents/TagsFilter.jsx";
 import SizeFilter from "./ShopComponents/SizeFilter.jsx";
@@ -8,12 +17,31 @@ import DiscountFilter from "./ShopComponents/DiscountFilter.jsx";
 import ProductCard from "../../components/ProductCard.jsx";
 import productImage1 from "../../assets/product1.png";
 import productImage1hover from "../../assets/product1hover.jpg";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const products = Array(15).fill({
   img: productImage1,
   hoverImg: productImage1hover,
   title: "Product Name",
 });
+
+const category = [
+  {
+    name: "Category 1",
+    imageUrl: "https://placehold.co/600x400",
+    page: "/shop/category1",
+  },
+  {
+    name: "Category 2",
+    imageUrl: "https://placehold.co/600x400",
+    page: "/shop/category2",
+  },
+  {
+    name: "Category 3",
+    imageUrl: "https://placehold.co/600x400",
+    page: "/shop/category3",
+  },
+];
 
 const FilterContent = ({ onApply }) => (
   <Box
@@ -69,6 +97,7 @@ const FilterContent = ({ onApply }) => (
 const Shop = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const navigate = useNavigate();
 
   const handleApply = () => {
     setDrawerOpen(false);
@@ -78,7 +107,71 @@ const Shop = () => {
   return (
     <Box>
       <Box sx={{ my: 4, p: 2, borderRadius: 2, textAlign: "center" }}>
-        <Typography variant="h1" fontStyle="italic">Shop</Typography>
+        <Typography variant="h1" fontStyle="italic">
+          Shop
+        </Typography>
+      </Box>
+
+      <Box
+        sx={{
+          width: "85vw",
+          display: "flex",
+          flexDirection: { xs: "column", sm: "row" },
+          gap: { xs: 1, sm: 2, md: 4 },
+          mx: "auto",
+          my: 4,
+          justifyContent: "center",
+        }}
+      >
+        {category.map((category, index) => (
+          <Paper
+            key={index}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              borderRadius: 2.5,
+              overflow: "hidden",
+              position: "relative",
+              cursor: "pointer",
+            }}
+            elevation={1}
+            onClick={() => navigate(category.page)}
+          >
+            <Box
+              component="img"
+              src={category.imageUrl}
+              sx={{
+                display: { xs: "none", sm: "block" },
+                width: "100%",
+                height: "auto",
+                objectFit: "cover",
+                ":hover": {
+                  filter: "blur(2px)",
+                  transition: "all 0.3s ease-in-out",
+                },
+              }}
+            />
+            <Box
+              sx={{
+                py: 1,
+                px: 2,
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <Typography variant="body1" color="textPrimary">
+                {category.name}
+              </Typography>
+              <IconButton
+                color="primary"
+                sx={{ display: { xs: "none", sm: "flex" } }}
+              >
+                <ArrowForwardIcon />
+              </IconButton>
+            </Box>
+          </Paper>
+        ))}
       </Box>
 
       <Box

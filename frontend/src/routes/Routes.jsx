@@ -11,6 +11,7 @@ import ImageSlider from "../components/ImageSlider.jsx";
 import Contact from "../pages/Contact.jsx";
 import Blogs from "../pages/Blog/Blogs.jsx";
 import Blog from "../pages/Blog/Blog.jsx";
+import Category from "../pages/Shop/Category.jsx";
 
 // Layout with BOTH components
 const BothLayout = () => (
@@ -52,6 +53,7 @@ const routes = () => {
         <Route path="/shop" element={<Shop />} />
         <Route path="/test" element={<Test />} />
         <Route path="/blog" element={<Blogs />} />
+        <Route path="/shop/:category" element={<Category />} />
       </Route>
 
       {/* Pages with ONLY EmailUpdate */}

@@ -22,7 +22,7 @@ const BlogHero = ({ blogTitle, imageUrl }) => {
   }, []);
 
   return (
-      <Box>
+      <Box sx={{ position: "static"}}>
         <Box
           sx={{
             position: "fixed",
@@ -54,6 +54,23 @@ const BlogHero = ({ blogTitle, imageUrl }) => {
         <Box
           sx={{ height: { xs: "30vh", sm: "50vh", md: "70vh", lg: "100vh" } }}
         />
+        <Box
+        sx={{
+          position: "relative",
+          zIndex: 2,
+          p: 4,
+          gap: 4,
+          mt: -23,
+        }}
+        >
+          <Typography
+            sx={{ typography: { xs: "h4", sm: "h3", md: "h2" } }}
+            color="white"
+          >
+            {blogTitle}
+          </Typography>
+          <Typography variant="h1" color="initial"></Typography>
+        </Box>
       </Box>
       
   );

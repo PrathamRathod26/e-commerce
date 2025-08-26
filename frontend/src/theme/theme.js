@@ -46,6 +46,46 @@ const typography = {
       fontSize: "3rem",
     },
   },
+  h3: {
+    fontWeight: 500,
+    fontSize: "1.75rem",
+    "@media (min-width:600px)": {
+      fontSize: "2rem",
+    },
+    "@media (min-width:900px)": {
+      fontSize: "2.5rem",
+    },
+  },
+  h4: {
+    fontWeight: 500,
+    fontSize: "1.5rem",
+    "@media (min-width:600px)": {
+      fontSize: "1.75rem",
+    },
+    "@media (min-width:900px)": {
+      fontSize: "2rem",
+    },
+  },
+  h5: {
+    fontWeight: 500,
+    fontSize: "1.25rem",
+    "@media (min-width:600px)": {
+      fontSize: "1.5rem",
+    },
+    "@media (min-width:900px)": {
+      fontSize: "1.75rem",
+    },
+  },
+  h6: {
+    fontWeight: 500,
+    fontSize: "1rem",
+    "@media (min-width:600px)": {
+      fontSize: "1.25rem",
+    },
+    "@media (min-width:900px)": {
+      fontSize: "1.5rem",
+    },
+  },
   body1: {
     fontSize: "0.9rem",
     "@media (min-width:600px)": {
