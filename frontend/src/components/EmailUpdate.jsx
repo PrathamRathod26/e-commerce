@@ -11,9 +11,10 @@ const EmailUpdate = () => {
   return (
     <Box
       sx={{
-        width: "85vw",
+        maxWidth: 1500,
         mx: "auto",
         my: 4,
+        px: 2,
       }}
     >
       <Box flex={1} sx={{ position: "relative" }}>
@@ -25,7 +26,7 @@ const EmailUpdate = () => {
             width: "100%",
             height: { xs: 400, sm: 500, md: 600 },
             objectFit: "cover",
-            borderRadius: 4,
+            borderRadius: 12,
             display: "block",
           }}
         />

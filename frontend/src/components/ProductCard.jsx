@@ -1,9 +1,12 @@
 import React from "react";
 import { Box, Paper, Typography, IconButton } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { useNavigate } from "react-router-dom";
 
-const ProductCard = ({ img, hoverImg, title }) => (
-  <Paper
+const ProductCard = ({ img, hoverImg, title, productUrl }) => {
+  const navigate = useNavigate();
+  return (
+    <Paper
     sx={{
       display: "flex",
       flexDirection: "column",
@@ -12,6 +15,7 @@ const ProductCard = ({ img, hoverImg, title }) => (
       position: "relative",
     }}
     elevation={3}
+    onClick={()=> navigate(productUrl)}
   >
     <Box
       sx={{
@@ -85,6 +89,7 @@ const ProductCard = ({ img, hoverImg, title }) => (
       </Typography>
     </Box>
   </Paper>
-);
+  );
+}
 
 export default ProductCard;

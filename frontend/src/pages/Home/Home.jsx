@@ -20,7 +20,8 @@ const Home = () => {
       >
         <Box
           sx={{
-            width: "85vw",
+            maxWidth: 1500,
+            px: 2,
             mx: "auto",
             my: 4,
             display: "flex",

@@ -44,10 +44,8 @@ const ProductFeature = () => {
           variant="h3"
           sx={{
             fontWeight: 700,
-            mt: 1,
-            mb: 2,
-            fontSize: { xs: "2rem", md: "2.5rem" },
           }}
+          gutterBottom
         >
           Eco-Friendly <br /> Packaging
         </Typography>

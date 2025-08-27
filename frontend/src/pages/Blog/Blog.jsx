@@ -1,6 +1,6 @@
 import { Box, Paper, Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
-import { blogs } from "./blogs";
+import { blogs } from "../../data/blogs";
 import { useRef } from "react";
 import BlogHero from "./BlogHero";
 import BlogContent from "./BlogContent";

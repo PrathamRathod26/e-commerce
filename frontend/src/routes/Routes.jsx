@@ -2,7 +2,6 @@ import React from "react";
 import { Routes, Route, Outlet } from "react-router-dom";
 
 import Home from "../pages/Home/Home.jsx";
-import Test from "../pages/Test.jsx";
 import Shop from "../pages/Shop/Shop.jsx";
 import Favorites from "../pages/Favorites.jsx";
 import About from "../pages/About/About.jsx";
@@ -12,6 +11,7 @@ import Contact from "../pages/Contact.jsx";
 import Blogs from "../pages/Blog/Blogs.jsx";
 import Blog from "../pages/Blog/Blog.jsx";
 import Category from "../pages/Shop/Category.jsx";
+import ProductPage from "../pages/Product/ProductPage.jsx"
 
 // Layout with BOTH components
 const BothLayout = () => (
@@ -51,9 +51,9 @@ const routes = () => {
       <Route element={<BothLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
-        <Route path="/test" element={<Test />} />
         <Route path="/blog" element={<Blogs />} />
-        <Route path="/shop/:category" element={<Category />} />
+        <Route path="/:category" element={<Category />} />
+        <Route path="/shop/:product" element={<ProductPage />} />
       </Route>
 
       {/* Pages with ONLY EmailUpdate */}

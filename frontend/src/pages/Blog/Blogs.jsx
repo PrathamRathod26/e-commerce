@@ -1,20 +1,20 @@
 import BlogCards from "./BlogCards";
-import { blogs } from "./blogs";
+import { blogs } from "../../data/blogs";
 import { Box, Typography } from "@mui/material";
 
 const Blog = () => {
   return (
     <Box
       sx={{
-        width: "85vw",
+        maxWidth: 1400,
         mx: "auto",
-        my: 4,
         display: "flex",
         flexDirection: "column",
-        gap: 8,
+        gap: 4,
+        my: 8,
       }}
     >
-      <Box sx={{ my: 4, p: 2, borderRadius: 2, textAlign: "center" }}>
+      <Box sx={{ mt: 4, p: 2, borderRadius: 2, textAlign: "center" }}>
         <Typography variant="h1" fontStyle="italic">
           Blog
         </Typography>
@@ -24,7 +24,7 @@ const Blog = () => {
           display: "grid",
           gap: 4,
           gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-          p: 2,
+          my: 2,
         }}
       >
         {blogs.map((blog, index) => (

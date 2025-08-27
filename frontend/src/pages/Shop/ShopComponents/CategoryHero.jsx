@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 
-const BlogHero = ({ blogTitle, imageUrl }) => {
+const CategoryHero = ({ name, imageUrl, description }) => {
   const [offset1, setOffset1] = useState(0);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const BlogHero = ({ blogTitle, imageUrl }) => {
           top: `-${offset1}px`,
           left: 0,
           width: "100%",
-          height: { xs: "30vh", sm: "50vh", md: "70vh", lg: "100vh" },
+          height: { xs: "40vh", sm: "50vh", md: "60vh", lg: "70vh" },
           zIndex: -1,
         }}
       >
@@ -37,7 +37,7 @@ const BlogHero = ({ blogTitle, imageUrl }) => {
           <Box
             component="img"
             src={imageUrl}
-            alt={blogTitle}
+            alt={name}
             sx={{
               width: "100%",
               height: "100%",
@@ -46,21 +46,27 @@ const BlogHero = ({ blogTitle, imageUrl }) => {
           />
         </Box>
       </Box>
-
       <Box
         sx={{
           position: "relative",
-          height: { xs: "30vh", sm: "50vh", md: "70vh", lg: "100vh" },
+          height: { xs: "40vh", sm: "50vh", md: "60vh", lg: "70vh" },
           display: "flex",
           alignItems: "flex-end",
           color: "white",
           p: 8,
         }}
       >
-        <Typography variant="h2" color="white">{blogTitle}</Typography>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+          <Typography variant="h2" color="white">
+            {name}
+          </Typography>
+          <Typography variant="h5" color="white">
+            {description}
+          </Typography>
+        </Box>
       </Box>
     </Box>
   );
 };
 
-export default BlogHero;
+export default CategoryHero;

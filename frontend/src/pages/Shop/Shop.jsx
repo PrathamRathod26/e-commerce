@@ -15,33 +15,9 @@ import SizeFilter from "./ShopComponents/SizeFilter.jsx";
 import PriceFilter from "./ShopComponents/PriceFilter.jsx";
 import DiscountFilter from "./ShopComponents/DiscountFilter.jsx";
 import ProductCard from "../../components/ProductCard.jsx";
-import productImage1 from "../../assets/product1.png";
-import productImage1hover from "../../assets/product1hover.jpg";
+import {products, category} from "../../data/shopData.js"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-const products = Array(15).fill({
-  img: productImage1,
-  hoverImg: productImage1hover,
-  title: "Product Name",
-});
-
-const category = [
-  {
-    name: "Category 1",
-    imageUrl: "https://placehold.co/600x400",
-    page: "/shop/category1",
-  },
-  {
-    name: "Category 2",
-    imageUrl: "https://placehold.co/600x400",
-    page: "/shop/category2",
-  },
-  {
-    name: "Category 3",
-    imageUrl: "https://placehold.co/600x400",
-    page: "/shop/category3",
-  },
-];
 
 const FilterContent = ({ onApply }) => (
   <Box
@@ -105,8 +81,18 @@ const Shop = () => {
   };
 
   return (
-    <Box>
-      <Box sx={{ my: 4, p: 2, borderRadius: 2, textAlign: "center" }}>
+    <Box
+      sx={{
+        maxWidth: 1500,
+        mx: "auto",
+        display: "flex",
+        flexDirection: "column",
+        gap: 4,
+        px: 2,
+        my: 8,
+      }}
+    >
+      <Box sx={{ mt: 4, p: 2, borderRadius: 2, textAlign: "center" }}>
         <Typography variant="h1" fontStyle="italic">
           Shop
         </Typography>
@@ -114,7 +100,7 @@ const Shop = () => {
 
       <Box
         sx={{
-          width: "85vw",
+          width: "100%",
           display: "flex",
           flexDirection: { xs: "column", sm: "row" },
           gap: { xs: 1, sm: 2, md: 4 },
@@ -133,6 +119,10 @@ const Shop = () => {
               overflow: "hidden",
               position: "relative",
               cursor: "pointer",
+              "&:hover img": {
+                filter: "blur(1.5px)",
+                transition: "0.3s ease",
+              },
             }}
             elevation={1}
             onClick={() => navigate(category.page)}
@@ -145,10 +135,6 @@ const Shop = () => {
                 width: "100%",
                 height: "auto",
                 objectFit: "cover",
-                ":hover": {
-                  filter: "blur(2px)",
-                  transition: "all 0.3s ease-in-out",
-                },
               }}
             />
             <Box
@@ -177,7 +163,7 @@ const Shop = () => {
       <Box
         sx={{
           display: "flex",
-          width: "85vw",
+          width: "100%",
           mx: "auto",
           flexDirection: "row",
           gap: 2,
@@ -223,7 +209,7 @@ const Shop = () => {
               }}
             >
               {products.map((product, index) => (
-                <ProductCard key={index} {...product} />
+                <ProductCard key={index} img={product.img} hoverImg={product.hoverImg} title={product.title} productUrl={product.productUrl}/>
               ))}
             </Box>
           </Box>

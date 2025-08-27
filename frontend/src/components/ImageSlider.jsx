@@ -1,11 +1,11 @@
 import { Box } from "@mui/material";
-const image1 = "https://placehold.co/400x400";
-const image2 = "https://placehold.co/400x400";
-const image3 = "https://placehold.co/400x400";
-const image4 = "https://placehold.co/400x400";
-const image5 = "https://placehold.co/400x400";
-const image6 = "https://placehold.co/400x400";
-const image7 = "https://placehold.co/400x400";
+const image1 = "https://placehold.co/400x400?text=Image1";
+const image2 = "https://placehold.co/400x400?text=Image2";
+const image3 = "https://placehold.co/400x400?text=Image3";
+const image4 = "https://placehold.co/400x400?text=Image4";
+const image5 = "https://placehold.co/400x400?text=Image5";
+const image6 = "https://placehold.co/400x400?text=Image6";
+const image7 = "https://placehold.co/400x400?text=Image7";
 const images = [
   image1,
   image2, 
@@ -13,7 +13,7 @@ const images = [
   image4,
   image5,
   image6,
-  image2
+  image7,
 ];
 
 const ImageSlider = () => {
@@ -22,7 +22,7 @@ const ImageSlider = () => {
       sx={{
         overflow: "hidden",
         width: "100%",
-        my: 4,
+        py: 4,
       }}
     >
       <Box

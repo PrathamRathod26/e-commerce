@@ -26,7 +26,6 @@ const About = () => {
           sx={{
             width: "85vw",
             mx: "auto",
-            my: 4,
             display: "flex",
             flexDirection: "column",
             gap: 2,

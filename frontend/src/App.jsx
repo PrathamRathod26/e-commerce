@@ -17,7 +17,7 @@ const App = () => {
           bgcolor: "background.default",
           width: "100%",
           minHeight: "100vh",
-          py: 8,
+          // py: 8,
         }}
       >
         <Routes />
