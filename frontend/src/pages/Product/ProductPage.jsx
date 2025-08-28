@@ -71,6 +71,7 @@ const ProductPage = () => {
               <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                 <VerifiedOutlinedIcon fontSize="small" />
                 <Typography variant="subtitle2">14 Days Return </Typography>
+                aljgho hoi h
               </Box>
             </Box>
           </Box>
