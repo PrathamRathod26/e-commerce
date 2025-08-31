@@ -1,48 +1,45 @@
-import { useState } from "react";
 import { Paper, Box, Typography, IconButton, Collapse } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 
-const InfoExpandableCard = ({ infoTitle, infoText, defaultOpen = false }) => {
-  const [open, setOpen] = useState(defaultOpen);
-
+const InfoExpandableCard = ({ infoTitle, infoText, isOpen, onToggle }) => {
   const contentId = `info-content-${infoTitle
     ?.toString()
     .replace(/\s+/g, "-")
     .toLowerCase()}`;
 
-  const toggle = () => setOpen((p) => !p);
   const onKeyDown = (e) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
-      toggle();
+      onToggle();
     }
   };
 
   return (
     <Paper
-      elevation={open ? 4 : 1}
+      elevation={isOpen ? 4 : 1}
       sx={{
         borderRadius: 3,
         p: 1.5,
-        bgcolor: open ? "grey.50" : "background.paper",
+        bgcolor: "background.paper",
         border: "1px solid",
-        borderColor: open ? "primary.main" : "grey.300",
+        borderColor: isOpen ? "primary.main" : "grey.300",
         transition: (theme) =>
           theme.transitions.create(
-            ["background-color", "box-shadow", "border-color"],
+            ["box-shadow", "border-color"],
             {
-              duration: theme.transitions.duration.shortest,
+              duration: theme.transitions.duration.short,
             }
           ),
       }}
     >
+      {/* Header Row */}
       <Box
         role="button"
         tabIndex={0}
-        aria-expanded={open}
+        aria-expanded={isOpen}
         aria-controls={contentId}
-        onClick={toggle}
+        onClick={onToggle}
         onKeyDown={onKeyDown}
         sx={{
           display: "flex",
@@ -61,7 +58,7 @@ const InfoExpandableCard = ({ infoTitle, infoText, defaultOpen = false }) => {
           variant="subtitle1"
           fontWeight={600}
           sx={{
-            color: open ? "primary.main" : "text.primary",
+            color: isOpen ? "primary.main" : "text.primary",
             transition: "color 0.3s ease",
           }}
         >
@@ -70,17 +67,17 @@ const InfoExpandableCard = ({ infoTitle, infoText, defaultOpen = false }) => {
 
         <IconButton
           size="small"
-          aria-label={open ? "Collapse" : "Expand"}
+          aria-label={isOpen ? "Collapse" : "Expand"}
           sx={{
             transition: (theme) =>
               theme.transitions.create("transform", {
                 duration: theme.transitions.duration.short,
               }),
-            transform: open ? "rotate(180deg)" : "rotate(0deg)",
-            color: open ? "primary.main" : "text.secondary",
+            transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+            color: isOpen ? "primary.main" : "text.secondary",
           }}
         >
-          {open ? (
+          {isOpen ? (
             <RemoveIcon fontSize="small" />
           ) : (
             <AddIcon fontSize="small" />
@@ -88,7 +85,8 @@ const InfoExpandableCard = ({ infoTitle, infoText, defaultOpen = false }) => {
         </IconButton>
       </Box>
 
-      <Collapse in={open} timeout="auto" unmountOnExit>
+      {/* Content */}
+      <Collapse in={isOpen} timeout="auto" unmountOnExit>
         <Box
           id={contentId}
           sx={{

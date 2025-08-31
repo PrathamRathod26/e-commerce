@@ -1,16 +1,22 @@
 import { Box, Typography, Paper, Button } from "@mui/material";
-import { product } from "../../data/product.js";
+import { product, products } from "../../data/product.js";
 import { useState } from "react";
 
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
-import VerifiedOutlinedIcon from "@mui/icons-material/VerifiedOutlined";
+import CheckroomIcon from "@mui/icons-material/Checkroom";
 
 import InfoExpandableCard from "./InfoExpandableCard.jsx";
+import FeatureCard from "../../components/FeatureCard.jsx";
+import ProductDetails from "./ProductDetails.jsx";
+import ProductCard from "../../components/ProductCard.jsx";
+
+const features = Array(4).fill({
+  icon: <CheckroomIcon fontSize="large" />,
+  title: "Product Features",
+  description: "Some interesting details on the feature.",
+});
 
 const ProductPage = () => {
-  const [quantity, setQuantity] = useState(0);
+  const [openCard, setOpenCard] = useState(null);
 
   return (
     <Box
@@ -45,144 +51,68 @@ const ProductPage = () => {
               />
             ))}
           </Box>
-          <Box
-            sx={{
-              flex: 4,
-              position: "sticky",
-              top: 20,
-              alignSelf: "flex-start",
-              height: "calc(100vh - 40px)",
-              overflowY: "auto",
-              pr: 1,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",              
-            }}
-          >
-            <Box>
-              <Typography variant="h3" color="textPrimary">
-                {product.productName}
-              </Typography>
-              <Typography variant="body1" color="textPrimary">
-                {product.productDescription}
-              </Typography>
-            </Box>
 
-            <Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: { xs: "column", lg: "row" },
-                  alignItems: "center",
-                  gap: { xs: 2, md: 3 },
-                  justifyContent: "center",
-                  my: 3,
-                }}
-              >
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 1.5,
-                    justifyContent: "center",
-                  }}
-                >
-                  <Button
-                    onClick={() => setQuantity(quantity > 0 ? quantity - 1 : 0)}
-                    variant="outlined"
-                    disabled={quantity === 0}
-                  >
-                    <RemoveIcon />
-                  </Button>
-
-                  <Paper
-                    elevation={2}
-                    sx={{
-                      py: 0.5,
-                      px: 3,
-                      textAlign: "center",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      minWidth: 50,
-                    }}
-                  >
-                    <Typography variant="body1" color="textPrimary">
-                      {quantity}
-                    </Typography>
-                  </Paper>
-
-                  <Button
-                    onClick={() => setQuantity(quantity + 1)}
-                    variant="outlined"
-                    color="primary"
-                  >
-                    <AddIcon />
-                  </Button>
-                </Box>
-
-                <Box
-                  sx={{
-                    display: "flex",
-                    gap: 1.5,
-                    width: "100%",
-                    flexDirection: { xs: "column", md: "row" },
-                  }}
-                >
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    fullWidth
-                    sx={{ borderRadius: 2, py: 1.2 }}
-                  >
-                    Buy Now
-                  </Button>
-                  <Button
-                    variant="contained"
-                    color="secondary"
-                    fullWidth
-                    sx={{ borderRadius: 2, py: 1.2 }}
-                  >
-                    Add To Cart
-                  </Button>
-                </Box>
-              </Box>
-
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                  gap: 2,
-                  color: "textprimary",
-                  justifyContent: "center",
-                }}
-              >
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                  <LocalShippingIcon fontSize="small" />
-                  <Typography variant="subtitle2">
-                    Free Shipping Over $50
-                  </Typography>
-                </Box>
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                  <VerifiedOutlinedIcon fontSize="small" />
-                  <Typography variant="subtitle2">14 Days Return</Typography>
-                </Box>
-              </Box>
-            </Box>
-
-            <Box
-              sx={{ mt: 4, display: "flex", flexDirection: "column", gap: 2 }}
-            >
-              {product.info.map(([title, text]) => (
-                <InfoExpandableCard
-                  key={title}
-                  infoTitle={title}
-                  infoText={text}
-                />
-              ))}
-            </Box>
-          </Box>
+          <ProductDetails product={product} />
         </Box>
+      </Box>
+      <Box
+        sx={{
+          display: "grid",
+          gap: 2,
+          gridTemplateColumns: {
+            xs: "1fr",
+            sm: "repeat(2, 1fr)",
+            md: "repeat(2, 1fr)",
+            lg: "repeat(4, 1fr)",
+          },
+          width: "100%",
+          justifyItems: "center",
+          my: 2,
+        }}
+      >
+        {features.map((feature, index) => (
+          <FeatureCard key={index} {...feature} />
+        ))}
+      </Box>
+      <Box sx={{ mb: 4 }}>
+        <Typography variant="h2" color="textPrimary" textAlign="center">
+          FAQs
+        </Typography>
+        <Box
+          sx={{
+            mt: 4,
+            display: "flex",
+            flexDirection: "column",
+            gap: 2,
+            maxWidth: 800,
+            mx: "auto",
+          }}
+        >
+          {product.faqs.map(([question, answer]) => (
+            <InfoExpandableCard
+              key={question}
+              infoTitle={question}
+              infoText={answer}
+              isOpen={openCard === question}
+              onToggle={() =>
+                setOpenCard(openCard === question ? null : question)
+              }
+            />
+          ))}
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 3,
+        }}
+      >
+        {products.map((product, index) => (
+          <ProductCard key={index} {...product} />
+        ))}
       </Box>
     </Box>
   );
