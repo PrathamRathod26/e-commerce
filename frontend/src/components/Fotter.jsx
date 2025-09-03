@@ -91,7 +91,7 @@ const Footer = () => {
           <Typography variant="h5" gutterBottom>
             {title}
           </Typography>
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
             {items.map((item, i) => (
               <Box
                 key={i}
@@ -115,7 +115,7 @@ const Footer = () => {
           bottom: 0,
           left: 0,
           height: { sm: "auto", md: 600, lg: 500 },
-          width: "100vw",
+          width: "100%",
           display: "flex",
           bgcolor: "primary.dark",
           color: "primary.contrastText",
@@ -174,10 +174,7 @@ const Footer = () => {
               "Home",
               "About",
               "Shop",
-              "Shop Single",
               "Blog",
-              "Blog Single",
-              "404",
               "Licencing",
             ])}
 
@@ -218,115 +215,7 @@ const Footer = () => {
           </Box>
         </Box>
       </Box>
-      <Box
-        sx={{
-          position: { sm: "static", md: "fixed" },
-          bottom: 0,
-          left: 0,
-          height: { sm: "auto", md: 600, lg: 500 },
-          width: "100vw",
-          display: "flex",
-          bgcolor: "primary.dark",
-          color: "primary.contrastText",
-          my: "auto",
-          px: { xs: 2, sm: 4, md: 6 },
-          overflowY: { xs: "scroll", sm: "hidden" },
-        }}
-      >
-        <Box
-          sx={{
-            width: "100%",
-            display: "flex",
-            flexDirection: { xs: "column", lg: "row" },
-            py: 2,
-            gap: { xs: 2, sm: 4, lg: 6 },
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              height: "100%",
-              flex: 1,
-              p: 2,
-              gap: 2,
-            }}
-          >
-            <Typography variant="h4">About E-commerce</Typography>
-            <Typography variant="body1">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi aut
-              nostrum quod dolorum dolores sint eveniet magni asperiores. Vel,
-              dicta?
-            </Typography>
-            <Box sx={{ display: "flex", gap: 2, cursor: "pointer" }}>
-              <FacebookIcon onClick={() => navigate("https://facebook.com")} />
-              <InstagramIcon
-                onClick={() => navigate("https://instagram.com")}
-              />
-              <XIcon onClick={() => navigate("https://twitter.com")} />
-            </Box>
-          </Box>
 
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: isMobile ? "column" : "row",
-              justifyContent: "space-between",
-              gap: 3,
-              flex: 2,
-              p: 2,
-              flexWrap: "wrap",
-            }}
-          >
-            {renderLinks("Pages", [
-              "Home",
-              "About",
-              "Shop",
-              "Shop Single",
-              "Blog",
-              "Blog Single",
-              "404",
-              "Licencing",
-            ])}
-
-            {isMobile ? (
-              renderLinks("Categories & Account", [
-                "All products",
-                "Cleanser",
-                "Lotion",
-                "Moistrizers",
-                "Favorites",
-                "My Account",
-              ])
-            ) : (
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 4,
-                  flex: 1,
-                }}
-              >
-                {renderLinks("Categories", [
-                  "Category 1",
-                  "Category 2",
-                  "Category 3",
-                ])}
-                {renderLinks("Account", ["Favorites", "My Account"])}
-              </Box>
-            )}
-
-            {renderLinks("Support", [
-              "Contacts",
-              "FAQs",
-              "Shipping & Delivery",
-              "Orders and Returns",
-              "Terms & Conditions",
-            ])}
-          </Box>
-        </Box>
-      </Box>
       <Box sx={{ height: { sm: "auto", md: 600, lg: 500 } }} />
     </Box>
   );

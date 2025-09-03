@@ -2,10 +2,8 @@ import {
   Box,
   Typography,
   TextField,
-  InputAdornment,
   Button,
 } from "@mui/material";
-import ImageSlider from "./ImageSlider";
 const image1 = "https://placehold.co/1600x900";
 const EmailUpdate = () => {
   return (
@@ -13,8 +11,8 @@ const EmailUpdate = () => {
       sx={{
         maxWidth: 1500,
         mx: "auto",
-        my: 4,
         px: 2,
+        py: 4,
       }}
     >
       <Box flex={1} sx={{ position: "relative" }}>

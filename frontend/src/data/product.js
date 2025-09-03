@@ -51,4 +51,5 @@ export const products = Array(3).fill({
   img: productImage1,
   hoverImg: productImage1hover,
   title: "Product Name",
+  productUrl: "/shop/ProductName",
 });

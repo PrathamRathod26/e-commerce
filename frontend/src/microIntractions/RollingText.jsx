@@ -8,6 +8,7 @@ const RollingText = ({ text, firstTextSx = {}, secondTextSx = {} }) => {
         display: "inline-block",
         overflow: "hidden",
         height: "1.5em",
+        width: "100%",
         cursor: "pointer",
       }}
     >

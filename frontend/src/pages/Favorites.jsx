@@ -8,9 +8,20 @@ const Favorites = () => {
     img: productImage1,
     hoverImg: productImage1hover,
     title: "Product Name",
+    productUrl: "/shop/ProductName",
   });
   return (
-    <Box>
+    <Box
+      sx={{
+        maxWidth: 1500,
+        mx: "auto",
+        display: "flex",
+        flexDirection: "column",
+        gap: 4,
+        px: 2,
+        my: 8,
+      }}
+    >
       <Box sx={{ my: 4, p: 2, borderRadius: 2, textAlign: "center" }}>
         <Typography variant="h1">Favroites</Typography>
       </Box>

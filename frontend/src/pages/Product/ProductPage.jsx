@@ -101,18 +101,23 @@ const ProductPage = () => {
           ))}
         </Box>
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 3,
-        }}
-      >
-        {products.map((product, index) => (
-          <ProductCard key={index} {...product} />
-        ))}
+      <Box sx={{ mb: 4, display: "flex", flexDirection: "column", gap: 4 }}>
+        <Box>
+          <Typography variant="h4" color="textPrimary" textAlign="center">You May Also Like</Typography>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 3,
+          }}
+        >
+          {products.map((product, index) => (
+            <ProductCard key={index} {...product} />
+          ))}
+        </Box>
       </Box>
     </Box>
   );

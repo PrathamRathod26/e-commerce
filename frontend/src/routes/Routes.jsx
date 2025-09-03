@@ -12,6 +12,7 @@ import Blogs from "../pages/Blog/Blogs.jsx";
 import Blog from "../pages/Blog/Blog.jsx";
 import Category from "../pages/Shop/Category.jsx";
 import ProductPage from "../pages/Product/ProductPage.jsx"
+import Cart from "../pages/Cart/Cart.jsx";
 
 // Layout with BOTH components
 const BothLayout = () => (
@@ -70,6 +71,7 @@ const routes = () => {
       <Route element={<NoneLayout />}>
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog/:blogTitle" element={<Blog />} />
+        <Route path="/cart" element={<Cart />} />
       </Route>
     </Routes>
   );
