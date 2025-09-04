@@ -13,6 +13,8 @@ import Blog from "../pages/Blog/Blog.jsx";
 import Category from "../pages/Shop/Category.jsx";
 import ProductPage from "../pages/Product/ProductPage.jsx"
 import Cart from "../pages/Cart/Cart.jsx";
+import UserProfile from "../pages/Profile/UserProfile.jsx";
+import PageNotFound from "../pages/PageNotFound.jsx";
 
 // Layout with BOTH components
 const BothLayout = () => (
@@ -53,7 +55,7 @@ const routes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/blog" element={<Blogs />} />
-        <Route path="/:category" element={<Category />} />
+        <Route path="/category/:category" element={<Category />} />
         <Route path="/shop/:product" element={<ProductPage />} />
       </Route>
 
@@ -72,6 +74,8 @@ const routes = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog/:blogTitle" element={<Blog />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/profile" element={<UserProfile />} />
+        <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>
   );

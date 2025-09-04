@@ -4,7 +4,17 @@ import { TextField, Button, Box, Typography } from "@mui/material";
 
 const Contact = () => {
   return (
-    <Box>
+    <Box
+      sx={{
+        maxWidth: 1500,
+        mx: "auto",
+        display: "flex",
+        flexDirection: "column",
+        gap: 4,
+        px: 2,
+        my: 8,
+      }}
+    >
       <Box
         sx={{
           my: 4,
